@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+
+    <script>
+        function CheckForm(Join) {
+        var chk1=document.form.Join.U_checkAgreement1.checked;
+        if(!chk1){
+            alert('약관에 동의해 주세요');
+            return false;
+        }
+    </script> 
+
+
+</head>
+<body>
+    <h1>회원가입
+    </h1>
+    <form name="write_form_member" method="post">
+        <table width="940" style="padding:5px 0 5px 0; ">
+
+            <tr>
+                <th>이름(한글)</th>
+                <td>
+                <input type="text" name="koreanName">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>이름(영문)</th>
+                <td>
+                <input type="text" name="FirstName">
+                <input type="text" name="LastName">
+                </td>
+            </tr>
+            <tr>
+                <th>회사명</th>
+                <td>
+                <input type="text" name="Company1"><br>
+                </td>
+            </tr>
+            <tr>
+                <th>부서</th>
+                <td>
+                <input type="text" name="Department"><br>
+                </td>
+            </tr>
+            <tr>
+                <th>직책</th>
+                <td>
+                <input type="text" name="Role"><br>
+                </td>
+            </tr>
+            <tr>
+                <th>이메일</th>
+                <td>
+                  <input type='text' name="email">@
+                  <input type='text' name="email_dns">
+                    <select name="emailaddr">
+                       <option value="">직접입력</option>
+                       <option value="daum.net">daum.net</option>
+                       <option value="empal.com">empal.com</option>
+                       <option value="gmail.com">gmail.com</option>
+                       <option value="hanmail.net">hanmail.net</option>
+                       <option value="msn.com">msn.com</option>
+                       <option value="naver.com">naver.com</option>
+                       <option value="nate.com">nate.com</option>
+                    </select>
+                  </td>
+               </tr>
+            <tr>
+              <th>비밀번호</th>
+              <td><input type="password" name="mbpw"> 영문/숫자포함 6자 이상</td>
+            </tr>
+            <tr>
+              <th>비밀번호 확인</th>
+              <td><input type="password" name="mbpw_re"></td>
+            </tr>
+
+               <th>핸드폰 번호</th>
+                <td><input type="text"name="tel_h1"> -
+                    <input type="text" name="tel_h2_1"> -
+                    <input type="text" name="tel_h2_2">
+                </td>
+               </tr>
+               
+
+                </tr>
+                </table>
+               </td>
+               </tr>
+               </form>
+               <a href="#">서비스 약관에 동의합니다</a>
+               <form name="frmJoin" action=""  onSubmit="return CheckForm(this)">
+                <input type="checkbox" name="U_checkAgreement1" id="U_checkAgreement1" value="" /> 약관동의
+                <br>
+
+
+               <b>이미 아이디가 있으신가요?</b>
+               <a href='login.html'>로그인</a>
+
+               <tr>
+                  <td colspan="2" align="center">
+                    <input type="submit" value="회원가입">
+                    <input type="reset" value="취소">
+                 </td>
+</body>
+</html>
+
+
+

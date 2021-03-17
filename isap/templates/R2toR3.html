@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R2toR3</title>
+
+    <script>
+        function goBack() {
+          window.history.back();
+        }
+        </script>
+        <script>
+            function myAdd() {
+            var tab=document.all.mytable;
+            var row=tab.insertRow();
+            var col=row.insertCell();
+            var inp=document.createElement("input");
+            inp.type="text";
+            inp.style="width:8cm"
+            inp.NAME="메일주소"; // 대문자로 주세요.
+            inp.setAttribute("onclick","alert(this.name)"); // 테스트를 위해서 추가해 본 겁니다.
+            col.innerHTML=inp.outerHTML;
+            }
+        </script>
+        <script>
+            function Submit() {
+            var x = document.getElementById("myText").value;
+            document.getElementById("demo").innerHTML = x;
+            }
+        </script> 
+        
+
+</head>
+
+<body>
+    <button onclick="goBack()">Go Back</button>
+
+    <h1 style="text-align: center; color:#045e9a">R2 to R3</h1>
+    <h3>결과 수신 메일주소</h3>
+    <input type="text" id="ReceiverEmail" value="메일 주소를 입력하세요" style="width: 8cm">
+
+
+    <input type=button value=add onclick=myAdd()>
+    <table id="mytable"></table>
+
+    <h3>파일 업로드</h3>
+    <input type="file" value="파일 선택" name="file"/></td>
+
+
+    <button onclick="Submit()">Submit</button>  
+    
+</body>
+</html>
