@@ -6,15 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
 
-    <script>
+    <!-- <script>
         function CheckForm(Join) {
         var chk1=document.form.Join.U_checkAgreement1.checked;
         if(!chk1){
             alert('약관에 동의해 주세요');
             return false;
         }
-    </script> 
-
+    </script> -->
 
 </head>
 <body>
@@ -58,8 +57,8 @@
             <tr>
                 <th>이메일</th>
                 <td>
-                  <input type='text' name="email">@
-                  <input type='text' name="email_dns">
+                    <input type='text' name="email">@
+                    <input type='text' name="email_dns">
                     <select name="emailaddr">
                        <option value="">직접입력</option>
                        <option value="daum.net">daum.net</option>
@@ -70,46 +69,44 @@
                        <option value="naver.com">naver.com</option>
                        <option value="nate.com">nate.com</option>
                     </select>
-                  </td>
-               </tr>
-            <tr>
-              <th>비밀번호</th>
-              <td><input type="password" name="mbpw"> 영문/숫자포함 6자 이상</td>
+                    <button href="http://127.0.0.1:8000/users/verify/{{secret}}">메일인증</button>
+                </td>
             </tr>
             <tr>
-              <th>비밀번호 확인</th>
-              <td><input type="password" name="mbpw_re"></td>
+                <th>비밀번호</th>
+                <td><input type="password" name="mbpw"> 영문/숫자포함 6자 이상</td>
             </tr>
-
-               <th>핸드폰 번호</th>
+            <tr>
+                <th>비밀번호 확인</th>
+                <td><input type="password" name="mbpw_re"></td>
+            </tr>
+            <tr>
+                <th>핸드폰 번호</th>
                 <td><input type="text"name="tel_h1"> -
                     <input type="text" name="tel_h2_1"> -
                     <input type="text" name="tel_h2_2">
                 </td>
-               </tr>
+            </tr>
                
-
-                </tr>
-                </table>
-               </td>
-               </tr>
-               </form>
-               <a href="#">서비스 약관에 동의합니다</a>
-               <form name="frmJoin" action=""  onSubmit="return CheckForm(this)">
-                <input type="checkbox" name="U_checkAgreement1" id="U_checkAgreement1" value="" /> 약관동의
-                <br>
+        </table>
+    </form>
+    <a href="#">서비스 약관에 동의합니다</a>
+    <form name="frmJoin" action=""  onSubmit="return CheckForm(join)">
+            <input type="checkbox" name="U_checkAgreement1" id="U_checkAgreement1" value="" /> 약관동의
+            <br>
 
 
-               <b>이미 아이디가 있으신가요?</b>
-               <a href='login.html'>로그인</a>
+            <b>이미 아이디가 있으신가요?</b>
+            <a href='login.html'>로그인</a>
 
-               <tr>
-                  <td colspan="2" align="center">
-                    <input type="submit" value="회원가입">
-                    <input type="reset" value="취소">
-                 </td>
+            <tr>
+                <td colspan="2" align="center">
+                <input type="submit" value="회원가입">
+                <input type="reset" value="취소">
+                </td>
+            </tr>
+    </form>
 </body>
 </html>
-
 
 
