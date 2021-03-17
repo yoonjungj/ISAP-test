@@ -40,14 +40,18 @@ DJANGO_APPS = [
 ]
 
 
-THIRD_PARTY_APPS = ["django_countries", "django_seed"]
+THIRD_PARTY_APPS = ["django_countries", "django_seed", "storages"]
 
 PROJECT_APPS = [
     "isap.apps.IsapConfig",
     "r3.apps.R3Config",
+    "lists.apps.ListsConfig",
+    "users.apps.UsersConfig",
+    "stats.apps.StatsConfig",
+    "pva.apps.PvaConfig",
 ]
 
-INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
 
 MIDDLEWARE = [
@@ -135,4 +139,12 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+
+# AUTH_USER_MODEL = "users.User"
+
+# Email Configuration
+
+# Auth
+
+# Locale
