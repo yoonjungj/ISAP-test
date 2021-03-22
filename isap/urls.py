@@ -1,9 +1,11 @@
 from django.urls import path
-from isap import views
+from . import views
+
 
 app_name = "isap"
 
 urlpatterns = [
-    path("", views.index, name="index")
+    path("", views.base, name="home"),
     # path("post/<int:pk>", views.PostDetailView.as_view(), name="post")
+    
 ]

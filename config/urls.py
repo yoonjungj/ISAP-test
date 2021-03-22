@@ -20,11 +20,28 @@ from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
+
 urlpatterns = [
+    path("", include("core.urls", namespace="core")),
+    # path("", RedirectView.as_view(url='/isap/', permanent=True)),
     path('admin/', admin.site.urls),
-    path('isap/', include('isap.urls')),
-    path("", RedirectView.as_view(url='/isap/', permanent=True)),
-] 
+    path('isap/', include('isap.urls', namespace="isap")),
+    path("users/", include("users.urls", namespace="users")),
+    #path("lists/", include("lists.urls", namespace="lists")),
+    #path("pva/", include("pva.urls", namespace="pva")),
+    path("r3/", include("r3.urls")),
+    path("stats/", include("stats.urls", namespace="stats")),
+    path("sentry-debug/", trigger_error),
+
+]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

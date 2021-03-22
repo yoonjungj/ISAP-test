@@ -11,9 +11,12 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR2 = os.path.dirname(os.path.dirname(
+#     os.path.abspath(__file__))) + '/isap'
 
 
 # Quick-start development settings - unsuitable for production
@@ -45,7 +48,7 @@ THIRD_PARTY_APPS = ["django_countries", "django_seed", "storages"]
 PROJECT_APPS = [
     "isap.apps.IsapConfig",
     "r3.apps.R3Config",
-    "lists.apps.ListsConfig",
+    "core.apps.CoreConfig",
     "users.apps.UsersConfig",
     "stats.apps.StatsConfig",
     "pva.apps.PvaConfig",
@@ -65,11 +68,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "config.urls"
-
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -141,10 +143,19 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
-# AUTH_USER_MODEL = "users.User"
+AUTH_USER_MODEL = "users.User"
 
 # Email Configuration
 
+EMAIL_HOST = "smtp.mailgun.org"
+EMAIL_PORT = "587"
+EMAIL_HOST_USER = os.environ.get("MAILGUN_USERNAME")
+EMAIL_HOST_PASSWORD = os.environ.get("MAILGUN_PASSWORD")
+
 # Auth
 
+LOGIN_URL = "/users/login/"
+
 # Locale
+
+LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)

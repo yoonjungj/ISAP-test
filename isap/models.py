@@ -1,10 +1,11 @@
 from django.db import models
 from django.urls import reverse
-from . import managers
 
 # Create your models here.
 # 글의 분류( 일상, 유머, 정보
-class Category(models.Model):  
+
+
+class Category(models.Model):
     name = models.CharField(max_length=50, help_text="블로그 글의 분류를 입력하세요.")
 
     def __str__(self):
@@ -13,7 +14,7 @@ class Category(models.Model):
 # 블로그 글(제목, 작성일, 대표 이미지, 내용, 분류
 
 
-class Post(models.Model): 
+class Post(models.Model):
     title = models.CharField(max_length=200)
     title_image = models.ImageField(blank=True)
     content = models.TextField()
@@ -25,6 +26,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
     # 1번 글의 경우
+
     def get_absolute_url(self):
         return reverse("post", args=[str(self.id)])
 
@@ -33,6 +35,3 @@ class Post(models.Model):
 
     def get_content_under300(self):
         return self.content[:300]
-
-
-
