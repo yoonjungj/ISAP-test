@@ -5,6 +5,13 @@ name = "pypi"
 
 [packages]
 django = "==2.2.5"
+django-seed = "*"
+sentry-sdk = "*"
+django-countries = "*"
+requests = "*"
+django-storages = "*"
+pillow = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
